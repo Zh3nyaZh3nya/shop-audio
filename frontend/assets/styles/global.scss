@@ -9,7 +9,12 @@ ul {
   list-style: none;
 }
 
-a, .hover {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hover {
   text-decoration: none;
   color: inherit;
   transition: color 0.15s ease;
