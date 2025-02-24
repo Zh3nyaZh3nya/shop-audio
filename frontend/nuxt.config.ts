@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   modules: [
+    'vue-yandex-maps/nuxt',
     '@pinia/nuxt',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -32,6 +33,9 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+  },
+  yandexMaps: {
+    apikey: '61a0064e-8ce3-4b3e-a7d1-cf970fadd310',
   },
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**'],

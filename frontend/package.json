@@ -16,7 +16,8 @@
     "nuxt": "^3.15.4",
     "pinia": "^2.3.1",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-yandex-maps": "^2.1.6"
   },
   "devDependencies": {
     "sass": "^1.83.4",
