@@ -36,8 +36,4 @@ const store = useStore()
 </template>
 
 <style lang="scss">
-.main {
-  &-news {
-  }
-}
 </style>

@@ -13,3 +13,15 @@ interface ICrumbs {
     disabled: boolean
     href: string
 }
+
+interface IPromo {
+    id: number
+    title: string
+    date_from: string
+    date_to: string
+    short_description: string
+    description: string
+    status: 'ACTIVE' | 'FINISH' | 'PENDING'
+    image: string
+    slug: string
+}

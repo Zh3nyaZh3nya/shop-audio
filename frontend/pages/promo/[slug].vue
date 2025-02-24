@@ -4,7 +4,7 @@ import { ref } from "vue"
 const store = useStore()
 const route = useRoute()
 
-const pageData = computed(() => store.GET_NEWS_PAGE(route.params.slug as string));
+const pageData = computed(() => store.GET_PROMO_PAGE(route.params.slug as string));
 
 const crumbs = ref<ICrumbs[]>([
   {
@@ -13,9 +13,9 @@ const crumbs = ref<ICrumbs[]>([
     href: '/',
   },
   {
-    title: 'Новости',
+    title: 'Акции',
     disabled: false,
-    href: '/news',
+    href: '/promo',
   },
   {
     title: pageData.value?.title,

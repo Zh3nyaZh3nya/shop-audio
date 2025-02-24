@@ -18,7 +18,7 @@ const crumbs: ICrumbs[] = [
   },
 ]
 
-const paginatedNews = computed(() => {
+const paginated = computed(() => {
   const start = (currentPage.value - 1) * PAGE_SIZE;
   return store.news.slice(start, start + PAGE_SIZE);
 });
@@ -63,8 +63,8 @@ const changePage = (page: number) => {
     <section>
       <v-container>
         <v-row class="mb-8">
-          <v-col cols="12" v-for="item in paginatedNews" :key="item.id">
-            <NewsCard :card="item" />
+          <v-col cols="12" v-for="item in paginated" :key="item.id">
+            <UICard :card="item" />
           </v-col>
         </v-row>
 
