@@ -11,7 +11,6 @@ const crumbs: ICrumbs[] = [
     href: '/warranty',
   },
 ]
-
 </script>
 
 <template>
