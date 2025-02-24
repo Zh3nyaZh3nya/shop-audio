@@ -24,6 +24,11 @@ const store = useStore()
         </v-row>
       </v-container>
     </section>
+    <section>
+      <v-container>
+        <MainDescription />
+      </v-container>
+    </section>
   </v-main>
 </template>
 
