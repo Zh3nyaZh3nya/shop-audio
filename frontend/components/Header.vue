@@ -143,9 +143,8 @@ const menu: IMenu[] = [
   </v-app-bar>
   <v-navigation-drawer
       v-model="drawer"
-      v-show="drawer"
-      :style="[drawer ? 'width: 100%; top: 56px; zIndex: 1006; height: calc(100% - 56px)' : '']"
-      :app="false"
+      temporary
+      :style="[drawer ? 'width: 100%; top: 56px; zIndex: 1006; height: calc(100% - 56px); display: block' : '']"
   >
     <div class="mb-4">
       <ul class="d-flex flex-column ga-4">

@@ -11,7 +11,7 @@ export const useStore = defineStore("index", {
     }),
     getters: {
         GET_NEWS_MAIN: (state: RootState): INews[] => {
-            return state.news.slice(state.news.length - 3, state.news.length)
+            return state.news.slice(0, 2)
         },
         GET_NEWS_PAGE: (state) => (slug: string): INews | undefined => {
             return state.news.find((item) => item.slug === slug);
