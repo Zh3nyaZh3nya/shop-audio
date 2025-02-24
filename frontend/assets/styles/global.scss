@@ -9,11 +9,33 @@ ul {
   list-style: none;
 }
 
-a {
+a, .hover {
   text-decoration: none;
   color: inherit;
   transition: color 0.15s ease;
   &:hover {
-    color: rgb(var(--v-theme-primary)) !important;
+    color: rgb(var(--v-theme-secondary)) !important;
+  }
+}
+
+.list-point {
+  list-style: none;
+  padding-left: 0px;
+
+  li {
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }

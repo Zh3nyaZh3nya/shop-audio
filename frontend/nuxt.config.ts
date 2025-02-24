@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   modules: [
-    '@nuxtjs/i18n',
     '@pinia/nuxt',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -33,15 +32,6 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
-  },
-  i18n: {
-    defaultLocale: "ru",
-    locales: [
-      { code: "ru", name: "Рус", file: 'locales/ru.json' },
-      { code: "kk", name: "Каз", file: 'locales/kk.json' },
-    ],
-    lazy: true,
-    langDir: '',
   },
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**'],
