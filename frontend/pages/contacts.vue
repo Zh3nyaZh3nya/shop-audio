@@ -88,17 +88,20 @@ const crumbs: ICrumbs[] = [
           <v-divider></v-divider>
           <h5 class="text-h5 font-weight-bold mb-4 mt-2">Реквизиты:</h5>
           <v-row class="mb-4">
-            <v-col cols="4">
+            <v-col cols="12" md="4">
               <div class="d-flex ga-4">
                 <v-icon icon="mdi-file-document-outline" size="38" class="mt-1" color="secondary"></v-icon>
                 <div>
                   <p><label class="text-primary">Наименование:</label> ТОО "SHOP-AUDIO"</p>
                   <p><label class="text-primary">БИН:</label> 200940033624</p>
                   <p><label class="text-primary">БИК:</label> HSBKKZKX</p>
+                  <p class="d-block d-md-none"><label class="text-primary">IBAN:</label> KZ77601A861003839811</p>
+                  <p class="d-block d-md-none"><label class="text-primary">Банк:</label> АО «Народный Банк Казахстана»</p>
+                  <p class="d-block d-md-none"><label class="text-primary">Кбе:</label> 17</p>
                 </div>
               </div>
             </v-col>
-            <v-col cols="4">
+            <v-col cols="12" md="4" class="d-none d-md-flex">
               <p><label class="text-primary">IBAN:</label> KZ77601A861003839811</p>
               <p><label class="text-primary">Банк:</label> АО «Народный Банк Казахстана»</p>
               <p><label class="text-primary">Кбе:</label> 17</p>
