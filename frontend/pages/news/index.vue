@@ -5,7 +5,7 @@ const store = useStore();
 
 const PAGE_SIZE = 10;
 const currentPage = ref(1);
-const crumbs = [
+const crumbs: ICrumbs[] = [
   {
     title: 'Главная',
     disabled: false,
@@ -35,7 +35,7 @@ const changePage = (page: number) => {
 </script>
 
 <template>
-  <v-main class="pt-0">
+  <v-main>
     <section>
       <v-container>
         <v-breadcrumbs
@@ -45,12 +45,16 @@ const changePage = (page: number) => {
         >
           <template v-slot:item="{ item }">
             <NuxtLink
+                v-if="!item.disabled"
                 :to="item.href"
-                :class="[{ 'text-disabled pointer-events-none': item.disabled }, { 'cursor-pointer': !item.disabled, }]"
-                class="text-decoration-none text-black "
+                class="text-decoration-none text-black cursor-pointer"
             >
               {{ item.title }}
             </NuxtLink>
+
+            <span v-else class="text-disabled">
+              {{ item.title }}
+            </span>
           </template>
         </v-breadcrumbs>
         <h1 class="text-h4">Новости</h1>

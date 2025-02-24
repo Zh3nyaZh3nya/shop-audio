@@ -56,7 +56,7 @@ const menu: IMenu[] = [
         </div>
       </div>
     </v-container>
-    <v-container class="text-white mx-0" style="max-width: 100%; background-color: #141515; z-index: 1004">
+    <v-container class="text-white mx-0 mx-md-auto" style="max-width: 100%; background-color: #141515; z-index: 1004">
       <v-row>
         <v-col cols="2" sm="6" md="4" class="">
           <div class="d-flex flex-row ga-8">
@@ -145,6 +145,7 @@ const menu: IMenu[] = [
       v-model="drawer"
       v-show="drawer"
       :style="[drawer ? 'width: 100%; top: 56px; zIndex: 1006; height: calc(100% - 56px)' : '']"
+      :app="false"
   >
     <div class="mb-4">
       <ul class="d-flex flex-column ga-4">

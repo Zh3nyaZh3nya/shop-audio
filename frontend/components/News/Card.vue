@@ -9,7 +9,7 @@ const props = defineProps<IProps>()
 </script>
 
 <template>
-  <v-card rounded="lg" :to="`/${card.slug}`" class="pa-4" :hover="false">
+  <v-card rounded="lg" :to="`news/${card.slug}`" class="pa-4" :hover="false">
     <div class="d-flex flex-sm-row flex-column align-sm-center ga-4">
       <div>
         <v-img :src="card.image" rounded="lg" cover width="150px" height="150px" />

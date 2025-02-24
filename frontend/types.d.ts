@@ -8,9 +8,8 @@ interface INews {
     description: string;
 }
 
-interface IPagination {
-    currentPage: number;
-    totalPages: number;
-    pageSize: number;
-    totalItems: number;
+interface ICrumbs {
+    title: string
+    disabled: boolean
+    href: string
 }

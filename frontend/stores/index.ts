@@ -13,8 +13,8 @@ export const useStore = defineStore("index", {
         GET_NEWS_MAIN: (state: RootState): INews[] => {
             return state.news.slice(state.news.length - 3, state.news.length)
         },
-        GET_NEWS_PAGE: (state: RootState, slug: string): INews => {
-            return state.news.find((item: INews): boolean => item.slug === slug)
+        GET_NEWS_PAGE: (state) => (slug: string): INews | undefined => {
+            return state.news.find((item) => item.slug === slug);
         }
     }
 })
