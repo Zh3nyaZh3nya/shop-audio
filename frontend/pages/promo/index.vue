@@ -3,8 +3,8 @@ import { computed, ref } from "vue";
 
 const store = useStore();
 
-const PAGE_SIZE = 5;
-const currentPage = ref(1);
+const PAGE_SIZE: number = 5;
+const currentPage = ref<number>(1);
 const crumbs: ICrumbs[] = [
   {
     title: 'Главная',
@@ -38,26 +38,8 @@ const changePage = (page: number) => {
   <v-main>
     <section>
       <v-container>
-        <v-breadcrumbs
-            :items="crumbs"
-            divider="/"
-            class="px-0 py-3 font-weight-medium ga-1 "
-        >
-          <template v-slot:item="{ item }">
-            <NuxtLink
-                v-if="!item.disabled"
-                :to="item.href"
-                class="text-decoration-none text-black cursor-pointer"
-            >
-              {{ item.title }}
-            </NuxtLink>
-
-            <span v-else class="text-disabled">
-              {{ item.title }}
-            </span>
-          </template>
-        </v-breadcrumbs>
-        <h1 class="text-h4">Акции</h1>
+        <UICrumbs :crumbs="crumbs" />
+        <h1 class="text-h5 font-weight-bold">Акции</h1>
       </v-container>
     </section>
     <section>

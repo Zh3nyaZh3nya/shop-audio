@@ -35,56 +35,33 @@ const menu: IMenu[] = [
 </script>
 
 <template>
-  <v-app-bar class="header d-flex flex-column position-relative" elevation="0" :height="236"  >
-    <v-container class="bg-primary mx-0" style="max-width: 100%;">
+  <v-app-bar class="header d-flex flex-column position-relative bg-transparent" elevation="0" :height="150"  >
+    <v-container class="bg-transparent mx-0" style="max-width: 100%;">
       <div class="header-top d-flex justify-space-between">
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" class="d-block d-sm-none" height="24" width="24"></v-app-bar-nav-icon>
         <nav class="d-none d-sm-block">
           <ul class="d-flex ga-4">
             <li v-for="item in menu" :key="item.title">
-              <nuxt-link :to="item.link" class="hover" exact-active-class="text-secondary">
+              <nuxt-link :to="item.link" class="hover" exact-active-class="text-primary">
                 {{ item.title }}
               </nuxt-link>
             </li>
           </ul>
         </nav>
-        <div class="d-flex d-sm-none">
+        <div class="d-flex justify-space-between ga-8">
           <div class="d-flex align-center ga-2 hover">
             <v-icon icon="mdi-phone" size="18"></v-icon>
             <a href="tel:+7 777 121 2342">+7 (777) 121-23-42</a>
+          </div>
+          <div class="d-flex align-center ga-2 hover">
+            <v-icon icon="mdi-email" size="18"></v-icon>
+            <a href="mailto:egorovasofia632@gmail.com">egorovasofia632@gmail.com</a>
           </div>
         </div>
       </div>
     </v-container>
     <v-container class="text-white mx-0 mx-md-auto" style="max-width: 100%; background-color: #141515; z-index: 1004">
       <v-row>
-        <v-col cols="2" sm="6" md="4" class="">
-          <div class="d-flex flex-row ga-8">
-            <div>
-              <nuxt-link to="/">
-                <v-img src="/logo.webp" cover width="120px" height="148px" />
-              </nuxt-link>
-            </div>
-            <div class="d-none d-sm-flex flex-column justify-space-between">
-              <div class="mb-4 d-flex flex-column">
-                <p class="mb-1">Связаться с нами:</p>
-                <div class="d-flex align-center ga-2 hover">
-                  <v-icon icon="mdi-phone" size="18"></v-icon>
-                  <a href="tel:+7 777 121 2342">+7 (777) 121-23-42</a>
-                </div>
-                <div class="d-flex align-center ga-2 hover">
-                  <v-icon icon="mdi-email" size="18"></v-icon>
-                  <a href="mailto:egorovasofia632@gmail.com">egorovasofia632@gmail.com</a>
-                </div>
-              </div>
-
-              <nuxt-link to="/contacts" class="d-flex align-center ga-1 text-secondary">
-                Подробнее
-                <v-icon icon="mdi-arrow-right" size="18"></v-icon>
-              </nuxt-link>
-            </div>
-          </div>
-        </v-col>
         <v-col cols="10" sm="6" md="8" class="d-flex flex-column-reverse flex-sm-column flex-md-row align-end align-md-center justify-end ga-2 ga-md-10">
           <div class="d-none d-sm-block">
             <v-menu open-on-hover offset-y>

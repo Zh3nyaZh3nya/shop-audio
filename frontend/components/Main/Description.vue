@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <v-sheet class="bg-white pa-4" rounded="lg">
+  <v-sheet class="bg-background-card pa-4" rounded="lg">
     <v-row>
       <v-col cols="12" md="2" class="d-none d-md-flex">
         <v-img src="/logo.webp" width="100%" height="212px" />
@@ -12,7 +12,7 @@
         <div class="pb-8">
           <h2 class="text-h5 font-weight-bold mb-6">Музыкальные инструменты, студийное, звуковое и световое оборудование</h2>
           <div class="mb-8">
-            <v-icon icon="mdi-music-clef-treble" size="80" color="secondary" class="float-left mr-2" />
+            <v-icon icon="mdi-music-clef-treble" size="80" color="primary" class="float-left mr-2" />
             <p>
               <label class="text-primary font-weight-bold">«SHOP AUDIO»</label> – это уникальный проект, который вдохновляет людей на творчество и
               предоставляет возможность открыть в себе новые таланты, используя качественное звуковое и световое оборудование.
@@ -24,7 +24,7 @@
             </p>
           </div>
           <div class="mb-8">
-            <v-icon icon="mdi-guitar-electric" size="80" color="secondary" class="float-left mr-4" />
+            <v-icon icon="mdi-guitar-electric" size="80" color="primary" class="float-left mr-4" />
             <p>
               <label class="text-primary font-weight-bold">Большой выбор.</label> Ассортимент интернет-магазина придется по вкусу как профессионалу, так и начинающему музыканту.
               В каталоге представлен широкий перечень качественной аппаратуры для концертных залов и ночных клубов:
@@ -33,7 +33,7 @@
             </p>
           </div>
           <div class="mb-8">
-            <v-icon icon="mdi-security" size="80" color="secondary" class="float-left mr-4" />
+            <v-icon icon="mdi-security" size="80" color="primary" class="float-left mr-4" />
             <p>
               <label class="text-primary font-weight-bold">Гарантия.</label> Мы работаем только с надежными поставщиками и производителями звукового оборудования.
               Поэтому мы предоставляем официальную гарантию на всю продукцию.
@@ -43,7 +43,7 @@
         <div>
           <h3 class="text-h5 font-weight-bold mb-6">Преимущества покупки звукового оборудования в интернет-магазине «Первый музыкальный»</h3>
           <div class="mb-8">
-            <v-icon icon="mdi-clock-fast" size="80" color="secondary" class="float-left mr-4" />
+            <v-icon icon="mdi-clock-fast" size="80" color="primary" class="float-left mr-4" />
             <p>
               <label class="text-primary font-weight-bold">Экономия времени.</label> Одним из главных ресурсов в повседневной жизни является время, и мы его ценим,
               поэтому вы можете купить музыкальное оборудование не выходя из дома. Мы организуем доставку товара в
@@ -52,14 +52,14 @@
             </p>
           </div>
           <div class="d-flex align-start align-md-center mb-8">
-            <v-icon icon="mdi-cash-multiple" size="80" color="secondary" class="float-left mr-4"></v-icon>
+            <v-icon icon="mdi-cash-multiple" size="80" color="primary" class="float-left mr-4"></v-icon>
             <p>
               <label class="text-primary font-weight-bold">Стоимость.</label> Для нас является приоритетным соотношение цены и качества,
               поэтому мы подбираем наилучшие варианты от поставщиков, а также работаем напрямую с производителями.
             </p>
           </div>
           <div class="d-flex align-start align-md-center">
-            <v-icon icon="mdi-tools" size="80" color="secondary" class="float-left mr-4"></v-icon>
+            <v-icon icon="mdi-tools" size="80" color="primary" class="float-left mr-4"></v-icon>
             <p>
               <label class="text-primary font-weight-bold">Монтаж.</label> При необходимости мы произведем быстрый монтаж и настройку оборудования.
             </p>

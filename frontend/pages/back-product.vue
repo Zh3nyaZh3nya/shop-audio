@@ -17,31 +17,13 @@ const crumbs: ICrumbs[] = [
   <v-main>
     <section>
       <v-container>
-        <v-breadcrumbs
-            :items="crumbs"
-            divider="/"
-            class="px-0 py-3 font-weight-medium ga-1 "
-        >
-          <template v-slot:item="{ item }">
-            <NuxtLink
-                v-if="!item.disabled"
-                :to="item.href"
-                class="text-decoration-none text-black cursor-pointer"
-            >
-              {{ item.title }}
-            </NuxtLink>
-
-            <span v-else class="text-disabled">
-              {{ item.title }}
-            </span>
-          </template>
-        </v-breadcrumbs>
+        <UICrumbs :crumbs="crumbs" />
         <h1>Возврат и обмен товара</h1>
       </v-container>
     </section>
     <section>
       <v-container>
-        <v-sheet class="bg-white pa-4" elevation="0" rounded="lg">
+        <v-sheet class="bg-background-card pa-4" elevation="0" rounded="lg">
           <h2 class="mb-4 text-h4 font-weight-bold">Правила по возврату и обмену товара</h2>
 
           <h3 class="mb-4 text-h5 font-weight-bold">Обмен товара</h3>

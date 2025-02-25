@@ -14,13 +14,15 @@ export default defineNuxtPlugin((app) => {
             themes: {
                 light: {
                     colors: {
-                        primary: '#1A237E',
-                        secondary: '#FFB300',
-                        accent: '#E53935',
-                        background: '#F5F5F5',
+                        primary: '#22b0f3',
+                        secondary: '#4238f5',
+                        accent: '#fa4d62',
+                        background: '#1b1d22',
+                        'background-card': '#23292f',
                         surface: '#FFFFFF',
-                        success: '#43A047',
+                        success: '#4c8217',
                         warning: '#FB8C00',
+                        pending: '#ff9800',
                         error: '#D32F2F',
                         info: '#0288D1',
                     },

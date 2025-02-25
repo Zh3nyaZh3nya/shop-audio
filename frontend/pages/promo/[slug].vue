@@ -18,7 +18,7 @@ const crumbs = ref<ICrumbs[]>([
     href: '/promo',
   },
   {
-    title: pageData.value?.title,
+    title: pageData.value?.title ?? '',
     disabled: true,
     href: '/'
   }
@@ -29,29 +29,11 @@ const crumbs = ref<ICrumbs[]>([
   <v-main>
     <section v-if="pageData">
       <v-container>
-        <v-breadcrumbs
-            :items="crumbs"
-            divider="/"
-            class="px-0 py-3 font-weight-medium ga-1 "
-        >
-          <template v-slot:item="{ item }">
-            <NuxtLink
-                v-if="!item.disabled"
-                :to="item.href"
-                class="text-decoration-none text-black cursor-pointer"
-            >
-              {{ item.title }}
-            </NuxtLink>
-
-            <span v-else class="text-disabled">
-              {{ item.title }}
-            </span>
-          </template>
-        </v-breadcrumbs>
-        <h1>{{ pageData.title }}</h1>
+        <UICrumbs :crumbs="crumbs" />
+        <h1 class="text-h5 font-weight-bold">{{ pageData.title }}</h1>
       </v-container>
     </section>
-    <section>
+    <section v-if="pageData">
       <v-container>
         <UIPage :card="pageData" />
       </v-container>

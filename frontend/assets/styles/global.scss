@@ -28,7 +28,7 @@ a {
   color: inherit;
   transition: color 0.15s ease;
   &:hover {
-    color: rgb(var(--v-theme-secondary)) !important;
+    color: rgb(var(--v-theme-primary)) !important;
   }
 }
 

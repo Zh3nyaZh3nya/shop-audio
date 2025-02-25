@@ -27,35 +27,17 @@ const crumbs: ICrumbs[] = [
   <v-main>
     <section>
       <v-container>
-        <v-breadcrumbs
-            :items="crumbs"
-            divider="/"
-            class="px-0 py-3 font-weight-medium ga-1 "
-        >
-          <template v-slot:item="{ item }">
-            <NuxtLink
-                v-if="!item.disabled"
-                :to="item.href"
-                class="text-decoration-none text-black cursor-pointer"
-            >
-              {{ item.title }}
-            </NuxtLink>
-
-            <span v-else class="text-disabled">
-              {{ item.title }}
-            </span>
-          </template>
-        </v-breadcrumbs>
+        <UICrumbs :crumbs="crumbs" />
         <h1>Контакты</h1>
       </v-container>
     </section>
     <section>
       <v-container>
-        <v-sheet class="bg-white pa-4" elevation="0" rounded="lg">
+        <v-sheet class="bg-background-card pa-4" elevation="0" rounded="lg">
           <v-row class="mb-4">
             <v-col cols="12">
               <div class="d-flex align-start ga-4">
-                <v-icon icon="mdi-map-marker-radius" size="38" class="mt-1" color="secondary"></v-icon>
+                <v-icon icon="mdi-map-marker-radius" size="38" class="mt-1" color="primary"></v-icon>
                 <div>
                   <h2 class="text-h5 font-weight-bold">Адрес:</h2>
                   <p>Республика Казахстан, A25E0X4, г. Алматы, ул. Жибек Жолы, 50</p>
@@ -66,7 +48,7 @@ const crumbs: ICrumbs[] = [
             </v-col>
             <v-col cols="12">
               <div class="d-flex align-start ga-4">
-                <v-icon icon="mdi-phone" size="38" class="mt-1" color="secondary"></v-icon>
+                <v-icon icon="mdi-phone" size="38" class="mt-1" color="primary"></v-icon>
                 <div>
                   <h3 class="text-h5 font-weight-bold">Телефоны:</h3>
                   <p>Тел: <a href="tel:+7 (777) 121-23-42" class="text-primary hover">+7 (777) 121-23-42</a></p>
@@ -77,7 +59,7 @@ const crumbs: ICrumbs[] = [
             </v-col>
             <v-col cols="12">
               <div class="d-flex align-start ga-4">
-                <v-icon icon="mdi-email" size="38" class="mt-1" color="secondary"></v-icon>
+                <v-icon icon="mdi-email" size="38" class="mt-1" color="primary"></v-icon>
                 <div>
                   <h4 class="text-h5 font-weight-bold">Эл. почта: </h4>
                   <p>Эл. почта: <a href="mailto:egorovasofia632@gmail.com" class="text-primary hover">egorovasofia632@gmail.com</a></p>
@@ -90,7 +72,7 @@ const crumbs: ICrumbs[] = [
           <v-row class="mb-4">
             <v-col cols="12" md="4">
               <div class="d-flex ga-4">
-                <v-icon icon="mdi-file-document-outline" size="38" class="mt-1" color="secondary"></v-icon>
+                <v-icon icon="mdi-file-document-outline" size="38" class="mt-1" color="primary"></v-icon>
                 <div>
                   <p><label class="text-primary">Наименование:</label> ТОО "SHOP-AUDIO"</p>
                   <p><label class="text-primary">БИН:</label> 200940033624</p>
@@ -101,7 +83,7 @@ const crumbs: ICrumbs[] = [
                 </div>
               </div>
             </v-col>
-            <v-col cols="12" md="4" class="d-none d-md-flex">
+            <v-col cols="12" md="4" class="d-none d-md-flex flex-column">
               <p><label class="text-primary">IBAN:</label> KZ77601A861003839811</p>
               <p><label class="text-primary">Банк:</label> АО «Народный Банк Казахстана»</p>
               <p><label class="text-primary">Кбе:</label> 17</p>

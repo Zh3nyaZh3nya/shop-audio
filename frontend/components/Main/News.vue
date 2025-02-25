@@ -3,13 +3,13 @@ const store = useStore()
 </script>
 
 <template>
-  <div class="bg-white pa-4 rounded-lg">
+  <div class="bg-background-card pa-4 rounded-lg">
     <v-row class="main-news-sheet-row">
       <v-col cols="12" sm="6" v-for="card in store.GET_NEWS_MAIN" :key="card.id">
-        <v-card :to="`/news/${card.slug}`" elevation="1" class="d-flex flex-column h-100">
-          <v-img :src="card.image" width="100%" max-height="220px" cover />
+        <v-card :to="`/news/${card.slug}`" elevation="16" rounded="lg" class="d-flex flex-column h-100 bg-background-card">
+          <v-img :src="card.image" width="100%" height="100%" max-height="220px" cover />
           <div class="pa-4 d-flex flex-column flex-grow-1">
-            <p class="mb-4 text-secondary">{{ formatDate(card.date, 'dots') }}</p>
+            <p class="mb-4 text-primary">{{ formatDate(card.date, 'dots') }}</p>
             <p class="flex-grow-1">{{ card.short_description }}</p>
           </div>
         </v-card>
@@ -17,7 +17,7 @@ const store = useStore()
     </v-row>
     <v-divider class="my-4"/>
     <div class="d-flex justify-end">
-      <nuxt-link to="/news" class="text-secondary d-flex align-center">
+      <nuxt-link to="/news" class="text-primary d-flex align-center">
         <p class="font-weight-medium">Перейти ко всем новостям</p>
         <v-icon icon="mdi-chevron-right"></v-icon>
       </nuxt-link>
