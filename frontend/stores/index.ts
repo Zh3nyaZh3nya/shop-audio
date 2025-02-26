@@ -1,16 +1,19 @@
 import { defineStore } from "pinia";
 import { newsData } from "assets/staticData/newsCard";
 import { promoData } from "assets/staticData/promoData";
+import { categoriesData } from "assets/staticData/categoriesData";
 
 interface RootState {
     news: INews[]
     promo: IPromo[]
+    categories: ICategory[]
 }
 
 export const useStore = defineStore("index", {
     state: (): RootState => ({
         news: newsData,
-        promo: promoData
+        promo: promoData,
+        categories: categoriesData
     }),
     getters: {
         GET_NEWS_MAIN: (state: RootState): INews[] => {

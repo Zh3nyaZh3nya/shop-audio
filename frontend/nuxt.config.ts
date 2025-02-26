@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import i18n from '@nuxtjs/i18n'
 
 export default defineNuxtConfig({
   css: ['~/assets/styles/global.scss', 'vuetify/lib/styles/main.sass', "@/assets/fonts/fonts.css"],
@@ -15,6 +14,7 @@ export default defineNuxtConfig({
   modules: [
     'vue-yandex-maps/nuxt',
     '@pinia/nuxt',
+    'nuxt-swiper',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error

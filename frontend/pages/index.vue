@@ -4,6 +4,11 @@ const store = useStore()
 
 <template>
   <v-main>
+    <section class="mb-8">
+      <v-container>
+        <MainBanner />
+      </v-container>
+    </section>
     <section class="main-news" v-if="store.GET_NEWS_MAIN">
       <v-container>
         <v-row>
