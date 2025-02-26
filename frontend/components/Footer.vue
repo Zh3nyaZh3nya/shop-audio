@@ -46,7 +46,7 @@ const menu_second: IMenu[] = [
 <template>
   <v-footer class="rounded-t-xl bg-background-card mt-16">
     <v-container>
-      <v-row class="d-flex flex-column-reverse flex-lg-column">
+      <v-row class="d-flex flex-column-reverse flex-lg-row">
         <v-col cols="12" lg="3">
           <div class="d-flex flex-column">
             <nuxt-link to="/" class="d-none d-lg-inline-block text-h5 text-md-h4 text-primary mb-4">SHOP AUDIO</nuxt-link>
