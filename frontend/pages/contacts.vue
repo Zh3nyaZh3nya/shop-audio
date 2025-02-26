@@ -75,18 +75,18 @@ const crumbs: ICrumbs[] = [
                 <v-icon icon="mdi-file-document-outline" size="38" class="mt-1" color="primary"></v-icon>
                 <div>
                   <p><label class="text-primary">Наименование:</label> ТОО "SHOP-AUDIO"</p>
-                  <p><label class="text-primary">БИН:</label> 200940033624</p>
-                  <p><label class="text-primary">БИК:</label> HSBKKZKX</p>
-                  <p class="d-block d-md-none"><label class="text-primary">IBAN:</label> KZ77601A861003839811</p>
+                  <p><label class="text-primary">БИН:</label> 223545633624</p>
+                  <p><label class="text-primary">БИК:</label> HSVZVZKX</p>
+                  <p class="d-block d-md-none"><label class="text-primary">IBAN:</label> KZ77601A321543210811</p>
                   <p class="d-block d-md-none"><label class="text-primary">Банк:</label> АО «Народный Банк Казахстана»</p>
-                  <p class="d-block d-md-none"><label class="text-primary">Кбе:</label> 17</p>
+                  <p class="d-block d-md-none"><label class="text-primary">Кбе:</label> 76</p>
                 </div>
               </div>
             </v-col>
             <v-col cols="12" md="4" class="d-none d-md-flex flex-column">
-              <p><label class="text-primary">IBAN:</label> KZ77601A861003839811</p>
+              <p><label class="text-primary">IBAN:</label> KZ77601A321543210811</p>
               <p><label class="text-primary">Банк:</label> АО «Народный Банк Казахстана»</p>
-              <p><label class="text-primary">Кбе:</label> 17</p>
+              <p><label class="text-primary">Кбе:</label> 76</p>
             </v-col>
             <v-col cols="12">
               <p><label class="text-primary">Адрес: </label>Республика Казахстан, A25E0X4, г. Алматы</p>
