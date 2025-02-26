@@ -35,7 +35,7 @@ const crumbs = ref<ICrumbs[]>([
     </section>
     <section v-if="pageData">
       <v-container>
-        <UIPage :card="pageData" />
+        <UIArticlePage :card="pageData" />
       </v-container>
     </section>
   </v-main>

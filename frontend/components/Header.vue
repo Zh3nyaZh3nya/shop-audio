@@ -191,7 +191,7 @@ const menu: IMenu[] = [
     &:after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       right: 0;
       background: black;
       width: 22px;

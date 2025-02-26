@@ -46,13 +46,14 @@ const changePage = (page: number) => {
       <v-container>
         <v-row class="mb-8">
           <v-col cols="12" v-for="item in paginated" :key="item.id">
-            <UICard :card="item" />
+            <UIArticleCard :card="item" />
           </v-col>
         </v-row>
 
         <v-pagination
             v-model="currentPage"
             :length="totalPages"
+            color="primary"
             total-visible="5"
             @update:model-value="changePage"
         ></v-pagination>
