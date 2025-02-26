@@ -70,7 +70,7 @@ const menu_second: IMenu[] = [
               <div class="bg-secondary rounded-lg pa-2">
                 <v-icon icon="mdi-email" color="white" />
               </div>
-              <a href="mailto:egorovasofia632@gmail.com" class="text-body-1">egorovasofia632@gmail.com</a>
+              <a href="mailto:egorovasofia632@gmail.com" class="text-body-1 hover">egorovasofia632@gmail.com</a>
             </div>
             <div class="d-flex flex-column align-start ga-2 mb-5">
               <div class="d-flex align-start ga-2">
@@ -144,14 +144,14 @@ const menu_second: IMenu[] = [
             <v-col cols="12" sm="6" class="d-flex flex-column align-center text-center text-lg-left pb-0 pb-sm-4">
               <ul class="d-flex flex-column ga-2">
                 <li v-for="item in menu_first" :key="item.title" class="text-h5">
-                  <nuxt-link :to="item.link" exact-active-class="text-primary">{{ item.title }}</nuxt-link>
+                  <nuxt-link :to="item.link" class="hover" exact-active-class="text-primary">{{ item.title }}</nuxt-link>
                 </li>
               </ul>
             </v-col>
             <v-col cols="12" sm="6" class="d-flex flex-column align-center text-center text-lg-left pt-2 pt-sm-4">
               <ul class="d-flex flex-column ga-2">
                 <li v-for="item in menu_second" :key="item.title" class="text-h5">
-                  <nuxt-link :to="item.link" exact-active-class="text-primary">{{ item.title }}</nuxt-link>
+                  <nuxt-link :to="item.link" class="hover" exact-active-class="text-primary">{{ item.title }}</nuxt-link>
                 </li>
               </ul>
             </v-col>
