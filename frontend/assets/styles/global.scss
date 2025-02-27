@@ -57,3 +57,17 @@ a {
 .text-decoration-dotted {
   border-bottom: 1px dotted currentColor;
 }
+
+.text-decoration-line-through-custom {
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content: '';
+    width: 100%;
+    top: 53%;
+    left: 0;
+    position: absolute;
+    border-top: 1px solid rgb(var(--v-theme-accent));
+    background: rgb(var(--v-theme-background-card));
+  }
+}

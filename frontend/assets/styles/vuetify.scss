@@ -49,6 +49,14 @@ $heading-font-family: "Montserrat", sans-serif;
       'font-family': $heading-font-family,
       'text-transform': none,
     ),
+    'h6': (
+      'size': 1.25rem,
+      'weight': 400,
+      'line-height': normal,
+      'letter-spacing': normal,
+      'font-family': $heading-font-family,
+      'text-transform': none,
+    ),
     'body-1': (
       'size': 1.125rem,
       'weight': 400,

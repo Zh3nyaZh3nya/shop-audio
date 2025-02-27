@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { register } from "swiper/element/bundle";
 import { useDisplay } from "vuetify";
 
 register();
 
-const { width } = useDisplay()
+const { width } = useDisplay();
 
 const images = [
   "/banner/banner-1.png",
@@ -17,6 +17,8 @@ const images = [
 const DELAY = 4000;
 const progressCircle = ref<SVGSVGElement | null>(null);
 const progressContent = ref<HTMLSpanElement | null>(null);
+const currentSlide = ref(1);
+const totalSlides = images.length;
 
 const onAutoplayTimeLeft = (swiper: any, time: number, progress: number) => {
   if (progressCircle.value) {
@@ -31,13 +33,16 @@ const swiperHeight = computed(() => {
   if (width.value < 600) return "200px";
   if (width.value < 960) return "300px";
   return "400px";
-})
+});
 
 onMounted(() => {
   setTimeout(() => {
     const swiperEl = document.querySelector("swiper-container");
     if (swiperEl && swiperEl.swiper) {
       const swiperInstance = swiperEl.swiper;
+      swiperInstance.on("slideChange", () => {
+        currentSlide.value = swiperInstance.realIndex + 1; // Обновляем номер текущего слайда
+      });
       swiperInstance.on("autoplayTimeLeft", onAutoplayTimeLeft);
     } else {
       console.warn("Swiper instance not found");
@@ -73,7 +78,7 @@ onMounted(() => {
           class="swiper swiper-container"
           :style="{ height: swiperHeight }"
           :autoplay="{
-            delay: DELAY,
+             delay: DELAY,
              disableOnInteraction: false
           }"
       >
@@ -81,6 +86,8 @@ onMounted(() => {
           <v-img :src="item" rounded="xl" height="100%" width="100%" cover />
         </swiper-slide>
       </swiper-container>
+
+      <p class="swiper-counter text-primary font-weight-bold">{{ currentSlide }} / {{ totalSlides }}</p>
 
       <div class="swiper-nav-el-prev elevation-12">
         <v-icon icon="mdi-chevron-up" />
@@ -101,7 +108,7 @@ onMounted(() => {
   </client-only>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .swiper-wrapper {
   position: relative;
   width: 100%;
@@ -164,5 +171,15 @@ onMounted(() => {
   stroke-dasharray: 125.6;
   stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
   transform: rotate(-90deg);
+}
+
+.swiper-counter {
+  position: absolute;
+  right: 15px;
+  bottom: 30px;
+  z-index: 20;
+  background: rgb(20 21 21 / 78%);
+  padding: 4px 12px;
+  border-radius: 8px;
 }
 </style>
