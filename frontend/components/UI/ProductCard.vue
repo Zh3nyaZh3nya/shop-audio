@@ -3,7 +3,7 @@ import { useStatus } from "~/composable/status";
 
 interface IProps {
   card: IProduct
-  status?: 'novelty' | 'promo' | 'top'
+  status?: statusPage
 }
 
 const props = defineProps<IProps>()
@@ -11,7 +11,7 @@ const props = defineProps<IProps>()
 
 <template>
   <v-card
-      :to="status ? `/catalog-${status}/${card.slug}` : `/catalog/${card.category}/${card.subcategory}/${card.slug}`"
+      :to="status ? `/catalog-${status}/${card.slug}` : `/catalog/${card.slug_category}/${card.slug_subcategory}/${card.slug}`"
       height="100%"
       elevation="6"
       class="bg-background-card d-flex flex-column ui-card position-relative"

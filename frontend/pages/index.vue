@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const store = useStore()
+
+useSeoMeta({
+  title: 'Главная'
+})
 </script>
 
 <template>
@@ -11,11 +15,13 @@ const store = useStore()
     </section>
     <section class="mb-4">
       <v-container>
-        <h2 class="mb-8 d-flex align-center ga-2 text-h5 font-weight-bold">
-          <v-icon icon="mdi-fire" color="primary" size="45"></v-icon>
-          Новинки
+        <h2 class="mb-8">
+          <nuxt-link to="catalog-novelty" class="hover d-flex align-center ga-2 text-h5 font-weight-bold">
+            <v-icon icon="mdi-fire" color="primary" size="45"></v-icon>
+            Новинки
+          </nuxt-link>
         </h2>
-        <UISlider :products="store.GET_STATUS_PRODUCTS('NEW', true)" status="novelty" key="novelty"/>
+        <UISliderCard :products="store.GET_STATUS_PRODUCTS('NEW', true)" status="novelty" key="novelty"/>
       </v-container>
     </section>
     <section class="mb-4 bg-background-card py-6">
@@ -32,11 +38,13 @@ const store = useStore()
     </section>
     <section class="mb-4">
       <v-container>
-        <h2 class="mb-8 d-flex align-center ga-2 text-h5 font-weight-bold">
-          <v-icon icon="mdi-sale-outline" color="primary" size="45"></v-icon>
-          Акции
+        <h2 class="mb-8">
+          <nuxt-link to="/catalog-promo" class="hover d-flex align-center ga-2 text-h5 font-weight-bold">
+            <v-icon icon="mdi-sale-outline" color="primary" size="45"></v-icon>
+            Акции
+          </nuxt-link>
         </h2>
-        <UISlider :products="store.GET_STATUS_PRODUCTS('PROMO', true)" status="promo" key="promo"/>
+        <UISliderCard :products="store.GET_STATUS_PRODUCTS('PROMO', true)" status="promo" key="promo"/>
       </v-container>
     </section>
     <section class="mb-4 bg-background-card py-6">
@@ -53,11 +61,13 @@ const store = useStore()
     </section>
     <section class="mb-4">
       <v-container>
-        <h2 class="mb-8 d-flex align-center ga-2 text-h5 font-weight-bold">
-          <v-icon icon="mdi-trophy-award" color="primary" size="45"></v-icon>
-          Топ продукты
+        <h2 class="mb-8">
+          <nuxt-link to="/catalog-top" class="hover d-flex align-center ga-2 text-h5 font-weight-bold">
+            <v-icon icon="mdi-trophy-award" color="primary" size="45"></v-icon>
+            Топ продукты
+          </nuxt-link>
         </h2>
-        <UISlider :products="store.GET_STATUS_PRODUCTS('TOP_PRODUCT', true)" status="top" key="top"/>
+        <UISliderCard :products="store.GET_STATUS_PRODUCTS('TOP_PRODUCT', true)" status="top" key="top"/>
       </v-container>
     </section>
     <section class="mb-4 bg-background-card py-6">

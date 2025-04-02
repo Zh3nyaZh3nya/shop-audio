@@ -11,6 +11,10 @@ const crumbs: ICrumbs[] = [
     href: '/warranty',
   },
 ]
+
+useSeoMeta({
+  title: 'Гарантия'
+})
 </script>
 
 <template>

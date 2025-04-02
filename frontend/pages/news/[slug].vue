@@ -23,6 +23,10 @@ const crumbs = ref<ICrumbs[]>([
     href: '/'
   }
 ])
+
+useSeoMeta({
+  title: 'Новости - ' + (pageData.value?.title ?? '')
+})
 </script>
 
 <template>

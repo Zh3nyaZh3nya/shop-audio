@@ -21,6 +21,10 @@ const crumbs: ICrumbs[] = [
     href: '/contacts',
   },
 ]
+
+useSeoMeta({
+  title: 'Контакты'
+})
 </script>
 
 <template>

@@ -11,6 +11,10 @@ const crumbs: ICrumbs[] = [
     href: '/back-product',
   },
 ]
+
+useSeoMeta({
+  title: 'Возврат и обмен товара'
+})
 </script>
 
 <template>

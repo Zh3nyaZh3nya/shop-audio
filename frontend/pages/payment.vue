@@ -11,6 +11,10 @@ const crumbs: ICrumbs[] = [
     href: '/payment',
   },
 ]
+
+useSeoMeta({
+  title: 'Способы оплаты'
+})
 </script>
 
 <template>

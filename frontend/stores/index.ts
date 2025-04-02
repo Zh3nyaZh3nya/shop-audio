@@ -3,6 +3,7 @@ import { newsData } from "assets/staticData/newsCard";
 import { promoData } from "assets/staticData/promoData";
 import { categoriesData } from "assets/staticData/categoriesData";
 import { productsData } from "assets/staticData/productsData";
+import {sl} from "vuetify/locale";
 
 interface RootState {
     news: INews[]
@@ -41,6 +42,9 @@ export const useStore = defineStore("index", {
                 return filterProducts.slice(0, 7)
             }
             return filterProducts
+        },
+        GET_PRODUCT_SLUG: (state: RootState) => (slug: string): IProduct | undefined => {
+            return state.products.find((item: IProduct): boolean => item.slug === slug)
         }
     }
 })

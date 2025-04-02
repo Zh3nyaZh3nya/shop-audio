@@ -1,5 +1,6 @@
 type statusPromo = 'ACTIVE' | 'FINISH' | 'PENDING'
 type statusProduct = 'NEW' | 'PROMO' | 'TOP_PRODUCT'
+type statusPage = 'novelty' | 'promo' | 'top'
 
 interface INews {
     id: number;
@@ -31,10 +32,18 @@ interface IPromo {
 
 interface ICategory {
     category: string
-    subcategory: string
+    slug_category: string
+    subcategories: {
+        title: string
+        slug: string
+    }[]
 }
 
-interface IProduct extends ICategory {
+interface IProduct {
+    category: string
+    subcategory: string
+    slug_category: string
+    slug_subcategory: string
     title: string
     slug: string
     price: string | number

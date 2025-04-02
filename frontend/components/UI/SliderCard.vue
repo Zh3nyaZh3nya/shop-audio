@@ -37,7 +37,7 @@ const props = defineProps<IProps>();
           class="ui-swiper swiper-container"
       >
         <swiper-slide v-for="item in products" :key="item.title" class="h-auto">
-          <UICard :card="item" :status="status" />
+          <UIProductCard :card="item" :status="status" />
         </swiper-slide>
       </swiper-container>
 

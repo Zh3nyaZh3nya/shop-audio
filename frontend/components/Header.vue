@@ -7,6 +7,7 @@ interface IMenu {
 }
 
 const { smAndUp } = useDisplay()
+const store = useStore()
 
 const drawer = ref<boolean>(false)
 
@@ -110,12 +111,46 @@ const menu: IMenu[] = [
       <v-row>
         <v-col cols="12" sm="8" class="d-none d-sm-flex align-center ga-6">
           <nuxt-link to="/" class="text-h5 text-md-h4 text-primary">SHOP AUDIO</nuxt-link>
-          <v-btn variant="flat" color="secondary">
-            <div class="d-flex align-center ga-2">
-              <v-icon icon="mdi-format-list-bulleted"></v-icon>
-              <p>КАТАЛОГ</p>
-            </div>
-          </v-btn>
+          <v-menu :close-on-content-click="false">
+            <template v-slot:activator="{ props }">
+              <v-btn variant="flat" color="secondary" v-bind="props">
+                <div class="d-flex align-center ga-2">
+                  <v-icon icon="mdi-format-list-bulleted"></v-icon>
+                  <p>КАТАЛОГ</p>
+                </div>
+              </v-btn>
+            </template>
+            <ul class="bg-background-card pa-4 mt-2 rounded-lg" @click.stop>
+              <li
+                  v-for="(item, index) in store.categories"
+                  :key="index"
+                  class="mb-1"
+              >
+                <div class="d-flex hover justify-space-between align-center ga-3">
+                  <p style="max-width: 250px">{{ item.category }}</p>
+                  <v-icon icon="mdi-chevron-right" size="x-small"></v-icon>
+                </div>
+                <v-divider class="my-2"></v-divider>
+                <v-menu
+                    open-on-hover
+                    activator="parent"
+                    class="catalog-menu-sub"
+                    submenu
+                >
+                  <ul @click.stop class="bg-background-card pa-4 rounded-lg ml-8">
+                    <li v-for="sub in item.subcategories" :key="sub.title" class="mb-1">
+                      <nuxt-link :to="`/catalog/${item.slug_category}/${sub.slug}`" class="hover">
+                        <p style="max-width: 250px">
+                          {{ sub.title }}
+                        </p>
+                      </nuxt-link>
+                      <v-divider class="my-2"></v-divider>
+                    </li>
+                  </ul>
+                </v-menu>
+              </li>
+            </ul>
+          </v-menu>
         </v-col>
         <v-col cols="12" sm="4" class="d-flex align-center justify-end ga-4 ga-md-10">
           <nuxt-link to="/favorites" class="header-favorites__link">
@@ -213,4 +248,5 @@ const menu: IMenu[] = [
     }
   }
 }
+
 </style>

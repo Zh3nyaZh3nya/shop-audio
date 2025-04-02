@@ -32,6 +32,10 @@ const changePage = (page: number) => {
     currentPage.value = page;
   }
 };
+
+useSeoMeta({
+  title: 'Акции'
+})
 </script>
 
 <template>
