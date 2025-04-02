@@ -3,8 +3,6 @@ import { ref, computed, onMounted } from "vue";
 import { register } from "swiper/element/bundle";
 import { useDisplay } from "vuetify";
 
-register();
-
 const { width } = useDisplay();
 
 const images = [
@@ -36,6 +34,7 @@ const swiperHeight = computed(() => {
 });
 
 onMounted(() => {
+  register();
   setTimeout(() => {
     const swiperEl = document.querySelector("swiper-container");
     if (swiperEl && swiperEl.swiper) {
@@ -75,7 +74,7 @@ onMounted(() => {
               height: 400
             }
           }"
-          class="swiper swiper-container"
+          class="swiper swiper-container w-100"
           :style="{ height: swiperHeight }"
           :autoplay="{
              delay: DELAY,

@@ -34,7 +34,7 @@ const props = defineProps<IProps>();
             prevEl: `.ui-swiper-nav-el-prev.${status}`,
             nextEl: `.ui-swiper-nav-el-next.${status}`
           }"
-          class="ui-swiper swiper-container"
+          class="ui-swiper swiper-container w-100"
       >
         <swiper-slide v-for="item in products" :key="item.title" class="h-auto">
           <UIProductCard :card="item" :status="status" />
