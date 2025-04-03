@@ -90,13 +90,13 @@ const colorCount = computed(() => {
             <div class="d-flex justify-space-between align-center mb-4 flex-wrap">
               <div class="d-flex align-center ga-6">
                 <div>
-                  <p v-if="!card.percent_promo" class="text-h5">{{ card.price }} ₸</p>
+                  <p v-if="!card.percent_promo" class="text-h5">{{ Number(card.price).toLocaleString('ru-RU') }} ₸</p>
                   <div v-else>
-                    <p class="text-h5">{{ Math.floor(Number(card.price) - (Number(card.price) / card.percent_promo)) }} ₸</p>
-                    <p><label class="text-decoration-line-through-custom text-body-1">{{ card.price }} ₸</label></p>
+                    <p class="text-h5">{{ Math.floor(Number(card.price) - (Number(card.price) / card.percent_promo)).toLocaleString('ru-RU') }} ₸</p>
+                    <p><label class="text-decoration-line-through-custom text-body-1">{{ Number(card.price).toLocaleString('ru-RU') }} ₸</label></p>
                     <p class="text-body-2 text-primary">
                       Вы экономите:
-                      <label class="font-weight-bold">{{ Math.floor((Number(card.price) / card.percent_promo)) }} ₸</label>
+                      <label class="font-weight-bold">{{ Math.floor((Number(card.price) / Number(card.percent_promo))).toLocaleString('ru-RU') }} ₸</label>
                     </p>
                   </div>
                 </div>

@@ -30,6 +30,9 @@ a {
   &:hover {
     color: rgb(var(--v-theme-primary)) !important;
   }
+  &-error:hover {
+    color: rgb(var(--v-theme-accent)) !important;
+  }
 }
 
 .list-point {

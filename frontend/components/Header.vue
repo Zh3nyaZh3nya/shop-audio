@@ -41,6 +41,12 @@ const menu: IMenu[] = [
     link: '/warranty'
   }
 ]
+
+const cartCountMoney = computed(() => {
+  return store.cart.reduce((acc, item) => {
+    return acc + (Number(item.price) * Number(item.countCart))
+  }, 0)
+})
 </script>
 
 <template>
@@ -155,12 +161,12 @@ const menu: IMenu[] = [
         <v-col cols="12" sm="4" class="d-flex align-center justify-end ga-4 ga-md-10">
           <nuxt-link to="/favorites" class="header-favorites__link">
             <v-icon icon="mdi-heart" color="primary" size="35"></v-icon>
-            <label class="header-favorites__link-label text-caption">0</label>
+            <label class="header-favorites__link-label text-caption">{{ store.favorites.length }}</label>
           </nuxt-link>
           <v-btn to="/cart"  variant="flat" color="secondary">
             <div class="d-flex align-center ga-2">
               <v-icon icon="mdi-cart" size="28"></v-icon>
-              <p>0 ₸</p>
+              <p>{{ cartCountMoney.toLocaleString('ru-RU') }} ₸</p>
             </div>
           </v-btn>
         </v-col>
@@ -245,6 +251,10 @@ const menu: IMenu[] = [
       border-radius: 50px;
       padding: 0 6px;
       z-index: 2;
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
