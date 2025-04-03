@@ -65,3 +65,6 @@ interface IProduct {
     instructions: string
 }
 
+interface IProductCart extends IProduct {
+    countCart: number
+}

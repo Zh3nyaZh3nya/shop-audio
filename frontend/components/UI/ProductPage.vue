@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { formatDate } from "~/utils/formatDate";
+import Notification from "~/components/UI/Notification.vue";
 
 interface IProps {
   card: IProduct
@@ -12,6 +13,7 @@ interface IOtherInfo {
 }
 
 const props = defineProps<IProps>()
+const store = useStore()
 
 const otherInfo: IOtherInfo[] = [
   {
@@ -51,9 +53,10 @@ const otherInfo: IOtherInfo[] = [
   }
 ]
 
-const countProducts = ref<number>(1)
+const countProducts = ref<number>(store.cart.find((item: IProductCart) => props.card.title === item.title)?.countCart || 1)
 const activeInfoTitle = ref<string | null>(null)
 const tab = ref('review')
+const notification = ref()
 
 const toggleInfo = (title: string) => {
   activeInfoTitle.value = activeInfoTitle.value === title ? null : title
@@ -84,7 +87,7 @@ const colorCount = computed(() => {
       <v-col cols="12" md="8">
         <aside>
           <header class="bg-background-card pa-4 rounded-lg mb-4">
-            <div class="d-flex justify-space-between align-center mb-4">
+            <div class="d-flex justify-space-between align-center mb-4 flex-wrap">
               <div class="d-flex align-center ga-6">
                 <div>
                   <p v-if="!card.percent_promo" class="text-h5">{{ card.price }} ₸</p>
@@ -103,7 +106,7 @@ const colorCount = computed(() => {
                 </div>
               </div>
 
-              <div class="d-flex align-center">
+              <div class="d-flex flex-column ga-4 mt-4 mt-sm-0">
                 <div class="d-flex align-center ga-4">
                   <v-btn
                       class="rounded-lg"
@@ -119,7 +122,45 @@ const colorCount = computed(() => {
                       @click="countProducts < Number(card.count) ? countProducts++ : countProducts"
                   />
                 </div>
+                <div class="d-flex d-md-none flex-column ga-4">
+                  <v-btn
+                      color="primary"
+                      size="large"
+                      class="text-body-2"
+                      @click="
+                        store.setCart(card, countProducts);
+                        notification.showNotification('Товар добавлен в корзину!')
+                      "
+                      v-if="
+                        !store.cart.find((item: IProductCart) => item.title === card.title) ||
+                        store.cart.find((item: IProductCart) => item.title === card.title)?.countCart !== countProducts
+                      "
+                  >
+                    Добавить в корзину
+                  </v-btn>
+                  <v-btn
+                      v-else
+                      color="accent"
+                      size="large"
+                      class="text-body-2"
+                      @click="
+                        store.setCart(card, countProducts, 'remove');
+                        notification.showNotification('Товар удален из корзины', 'error')
+                      "
+                  >
+                    Удалить из корзины
+                  </v-btn>
+                  <nuxt-link
+                      to="/cart"
+                      class="d-flex align-center text-body-2 hover"
+                      :class="{'disabled': !store.cart.find((item: IProductCart) => item.title === card.title)}"
+                  >
+                    Перейти в корзину
+                    <v-icon icon="mdi-chevron-right"/>
+                  </nuxt-link>
+                </div>
               </div>
+
             </div>
 
             <div>
@@ -130,13 +171,48 @@ const colorCount = computed(() => {
                   <v-icon icon="mdi-chart-line-variant" :color="colorCount"></v-icon>
                   <p>{{ Number(card.count) }} шт.</p>
                 </div>
-                <v-btn color="primary" size="large" class="text-body-2">
-                  Добавить в корзину
-                </v-btn>
+                <div class="d-none d-md-flex align-center ga-4">
+                  <nuxt-link
+                      to="/cart"
+                      class="d-flex align-center text-body-2 hover"
+                      :class="{'disabled': !store.cart.find((item: IProductCart) => item.title === card.title)}"
+                  >
+                    Перейти в корзину
+                    <v-icon icon="mdi-chevron-right"/>
+                  </nuxt-link>
+                  <v-btn
+                      color="primary"
+                      size="large"
+                      class="text-body-2"
+                      @click="
+                        store.setCart(card, countProducts);
+                        notification.showNotification('Товар добавлен в корзину!')
+                      "
+                      v-if="
+                        !store.cart.find((item: IProductCart) => item.title === card.title) ||
+                        store.cart.find((item: IProductCart) => item.title === card.title)?.countCart !== countProducts
+                      "
+                  >
+                    Добавить в корзину
+                  </v-btn>
+                  <v-btn
+                      v-else
+                      color="accent"
+                      size="large"
+                      class="text-body-2"
+                      @click="
+                        store.setCart(card, countProducts, 'remove');
+                        notification.showNotification('Товар удален из корзины', 'error')
+                      "
+                  >
+                    Удалить из корзины
+                  </v-btn>
+                </div>
+
               </div>
               <v-divider />
               <div class="pt-4">
-                <div class="d-flex align-center ga-2 text-h6">
+                <div class="d-flex flex-wrap align-center ga-2 text-body-2 text-sm-h6">
                   <v-icon icon="mdi-phone" color="primary" />
                   <a href="tel:+7 (777) 121-23-42" class="hover">+7 (777) 121-23-42</a>
                   <p class="text-body-2">(заказ по телефону)</p>
@@ -242,6 +318,9 @@ const colorCount = computed(() => {
       <div v-html="card.instructions"></div>
     </v-tabs-window-item>
   </v-tabs-window>
+
+  <Notification ref="notification" />
+
 </template>
 
 <style lang="scss">

@@ -3,15 +3,14 @@ import { newsData } from "assets/staticData/newsCard";
 import { promoData } from "assets/staticData/promoData";
 import { categoriesData } from "assets/staticData/categoriesData";
 import { productsData } from "assets/staticData/productsData";
-import {sl} from "vuetify/locale";
 
 interface RootState {
     news: INews[]
     promo: IPromo[]
     categories: ICategory[]
     products: IProduct[]
-    favorites: IProduct[] | null
-    cart: IProduct[] | null
+    favorites: IProduct[]
+    cart: IProductCart[]
 }
 
 export const useStore = defineStore("index", {
@@ -20,9 +19,28 @@ export const useStore = defineStore("index", {
         promo: promoData,
         categories: categoriesData,
         products: productsData,
-        favorites: null,
-        cart: null
+        favorites: [],
+        cart: []
     }),
+    actions: {
+        setCart(product: IProduct, count: number, action: 'add' | 'remove' = 'add') {
+            if(action === 'add') {
+                this.cart.push({
+                    ...product,
+                    countCart: count
+                })
+            } else {
+                this.cart = this.cart.filter((item: IProductCart) => item.title !== product.title)
+            }
+        },
+        setFavorites(product: IProduct, action: 'add' | 'remove' = 'add') {
+            if (action === 'add') {
+                this.favorites = [...(this.favorites || []), product]
+            } else {
+                this.favorites = (this.favorites || []).filter(item => item.title !== product.title)
+            }
+        }
+    },
     getters: {
         GET_NEWS_MAIN: (state: RootState): INews[] => {
             return state.news.slice(0, 2)

@@ -71,3 +71,9 @@ a {
     background: rgb(var(--v-theme-background-card));
   }
 }
+
+.disabled {
+  cursor: none;
+  pointer-events: none;
+  opacity: .5;
+}
