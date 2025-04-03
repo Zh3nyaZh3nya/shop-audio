@@ -67,4 +67,5 @@ interface IProduct {
 
 interface IProductCart extends IProduct {
     countCart: number
+    totalPrice: number
 }

@@ -23,12 +23,28 @@ export const useStore = defineStore("index", {
         cart: []
     }),
     actions: {
-        setCart(product: IProduct, count: number, action: 'add' | 'remove' = 'add') {
+        setCart(product: IProduct, count?: number, action: 'add' | 'remove' = 'add') {
             if(action === 'add') {
-                this.cart.push({
+                const existingIndex: number = this.cart.findIndex((item: IProductCart) => item.title === product.title)
+
+                const countValue: number = count || 1
+                const basePrice: number = Number(product.price)
+                const discount: number | null | undefined = product.percent_promo
+                const calculatedTotal: number = discount
+                    ? Math.floor(basePrice - (basePrice * Number(discount) / 100)) * countValue
+                    : basePrice * countValue
+
+                const newItem = {
                     ...product,
-                    countCart: count
-                })
+                    countCart: countValue,
+                    totalPrice: calculatedTotal
+                }
+
+                if (existingIndex !== -1) {
+                    this.cart[existingIndex] = newItem
+                } else {
+                    this.cart.push(newItem)
+                }
             } else {
                 this.cart = this.cart.filter((item: IProductCart) => item.title !== product.title)
             }
@@ -38,6 +54,23 @@ export const useStore = defineStore("index", {
                 this.favorites = [...(this.favorites || []), product]
             } else {
                 this.favorites = (this.favorites || []).filter(item => item.title !== product.title)
+            }
+        },
+        clearCollection(type: 'cart' | 'favorites') {
+            if(type === 'cart') {
+                this.cart = []
+            } else {
+                this.favorites = []
+            }
+        },
+        updateCountProduct(title: string, newCount: number) {
+            const index: number = this.cart.findIndex((item: IProductCart) => item.title === title)
+            const product: IProductCart = this.cart[index]
+            if (index !== -1) {
+                product.countCart = newCount
+                product.totalPrice = product.percent_promo ?
+                    Math.floor((Number(product.price) - (Number(product.price) / Number(product.percent_promo)))) * (newCount || 1) :
+                    Number(product.price) * (newCount || 1)
             }
         }
     },
