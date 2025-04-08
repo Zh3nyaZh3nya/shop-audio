@@ -50,7 +50,7 @@ const menu_second: IMenu[] = [
         <v-col cols="12" lg="3">
           <div class="d-flex flex-column">
             <nuxt-link to="/" class="d-none d-lg-inline-block text-h5 text-md-h4 text-primary mb-4">SHOP AUDIO</nuxt-link>
-              <div class="d-flex align-center ga-2 mb-4">
+            <div class="d-flex align-start ga-2 mb-4">
               <div class="bg-secondary rounded-lg pa-2 mb-1">
                 <v-icon icon="mdi-phone" color="white" />
               </div>

@@ -61,7 +61,7 @@ interface IProduct {
         name: string
         date: string
         text: string
-    }[],
+    }[] | null,
     instructions: string
 }
 

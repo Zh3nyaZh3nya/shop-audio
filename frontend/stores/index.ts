@@ -1,8 +1,8 @@
-import { defineStore } from "pinia";
-import { newsData } from "assets/staticData/newsCard";
-import { promoData } from "assets/staticData/promoData";
-import { categoriesData } from "assets/staticData/categoriesData";
-import { productsData } from "assets/staticData/productsData";
+import {defineStore} from "pinia";
+import {newsData} from "assets/staticData/newsCard";
+import {promoData} from "assets/staticData/promoData";
+import {categoriesData} from "assets/staticData/categoriesData";
+import {productsData} from "assets/staticData/productsData";
 
 interface RootState {
     news: INews[]
@@ -96,6 +96,15 @@ export const useStore = defineStore("index", {
         },
         GET_PRODUCT_SLUG: (state: RootState) => (slug: string): IProduct | undefined => {
             return state.products.find((item: IProduct): boolean => item.slug === slug)
-        }
+        },
+        GET_PRODUCTS_CATEGORY: (state: RootState) => (slug_category: string): IProduct[] => {
+            return state.products.filter((item: IProduct): boolean => item.slug_category === slug_category)
+        },
+        GET_PRODUCTS_SUBCATEGORY: (state: RootState) => (slug_subcategory: string): IProduct[] => {
+            return state.products.filter((item: IProduct): boolean => item.slug_subcategory === slug_subcategory)
+        },
+        GET_CATEGORY: (state: RootState) => (): string[] => {
+            return state.categories.map((item: ICategory) => item.category)
+        },
     }
 })

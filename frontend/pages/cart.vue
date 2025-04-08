@@ -54,7 +54,7 @@ useSeoMeta({
     <section>
       <v-container>
         <v-row>
-          <v-col cols="12" :md="store.cart.length ? 9 : 12">
+          <v-col cols="12" :lg="store.cart.length ? 9 : 12">
             <v-sheet color="background-card" class="pa-4 pa-sm-8" rounded="lg">
               <div class="d-flex justify-start justify-sm-end">
                 <v-btn
@@ -82,14 +82,14 @@ useSeoMeta({
               </v-row>
               <v-row v-else>
                 <v-col cols="12" class="text-center">
-                  <h2 class="text-h6">В корзине нет товаров</h2>
-                  <p class="mb-4">Вы можете выбрать подходящую технику в нашем каталоге</p>
+                  <h2 class="text-h6">В корзине нет товаров.</h2>
+                  <p class="mb-4">Вы можете выбрать подходящую технику в нашем каталоге.</p>
                   <v-btn color="secondary" size="large" to="/catalog">Каталог товаров</v-btn>
                 </v-col>
               </v-row>
             </v-sheet>
           </v-col>
-          <v-col cols="12" md="3" v-if="store.cart.length">
+          <v-col cols="12" lg="3" v-if="store.cart.length">
             <v-sheet color="background-card" rounded="lg" class="pa-4 d-flex flex-column">
               <div>
                 <div class="d-flex justify-space-between">

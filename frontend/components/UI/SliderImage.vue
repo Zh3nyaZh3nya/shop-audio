@@ -28,7 +28,7 @@ const thumbsSwiper = ref<SwiperCore>();
           class="main-swiper bg-background rounded-lg position-relative"
       >
         <SwiperSlide v-for="(img, i) in props.images" :key="i" class="h-auto">
-          <v-img :src="img" class="rounded-lg" max-height="300px" height="100%" width="100%" cover />
+          <v-img :src="img" class="rounded-lg" max-height="300px" min-height="275px" height="100%" width="100%" cover />
         </SwiperSlide>
         <div class="gallery-wrapper-chip d-flex flex-column align-start ga-2">
           <v-chip

@@ -16,10 +16,7 @@ export const productsData: IProduct[] = ([
             { title: 'Подключение', text: 'Bluetooth' },
             { title: 'Время работы', text: '20 часов' },
         ],
-        reviews: [
-            { name: 'Иван', date: '2025-01-15', text: 'Отличные наушники, качественный звук!' },
-            { name: 'Анна', date: '2025-01-17', text: 'Очень удобные, шумоподавление работает хорошо.' },
-        ],
+        reviews: undefined,
         instructions: 'Подключитесь через Bluetooth для использования наушников.',
     },
     {

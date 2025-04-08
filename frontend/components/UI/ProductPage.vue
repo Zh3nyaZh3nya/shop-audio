@@ -80,9 +80,9 @@ const colorCount = computed(() => {
   <v-sheet class="bg-transparent product-page mb-6">
     <v-row>
       <v-col cols="12" md="4">
-        <div class="bg-background-card pa-4 rounded-lg">
+        <v-sheet min-height="383px" class="bg-background-card pa-4 rounded-lg">
           <UISliderImage :images="card.image" :statuses="card.status" />
-        </div>
+        </v-sheet>
       </v-col>
       <v-col cols="12" md="8">
         <aside>
