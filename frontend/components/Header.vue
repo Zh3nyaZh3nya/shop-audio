@@ -136,7 +136,7 @@ const cartCountMoney = computed(() => {
                   <p style="max-width: 250px">{{ item.category }}</p>
                   <v-icon icon="mdi-chevron-right" size="x-small"></v-icon>
                 </div>
-                <v-divider class="my-2"></v-divider>
+                <v-divider class="my-2" v-if="index !== store.categories.length - 1"></v-divider>
                 <v-menu
                     open-on-hover
                     activator="parent"
@@ -144,13 +144,13 @@ const cartCountMoney = computed(() => {
                     submenu
                 >
                   <ul @click.stop class="bg-background-card pa-4 rounded-lg ml-8">
-                    <li v-for="sub in item.subcategories" :key="sub.title" class="mb-1">
+                    <li v-for="(sub, indexSub) in item.subcategories" :key="sub.title" class="mb-1">
                       <nuxt-link :to="`/catalog/${item.slug_category}/${sub.slug}`" class="hover">
                         <p style="max-width: 250px">
                           {{ sub.title }}
                         </p>
                       </nuxt-link>
-                      <v-divider class="my-2"></v-divider>
+                      <v-divider class="my-2" v-if="indexSub !== item.subcategories.length - 1"></v-divider>
                     </li>
                   </ul>
                 </v-menu>
