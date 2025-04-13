@@ -76,12 +76,7 @@ useSeoMeta({
         ></v-pagination>
 
         <v-row>
-          <v-col cols="12" md="3">
-            <v-sheet color="background-card" class="pa-4" rounded="lg">
-
-            </v-sheet>
-          </v-col>
-          <v-col cols="12" md="9">
+          <v-col cols="12">
             <v-row>
               <v-col
                   v-for="card in paginated"

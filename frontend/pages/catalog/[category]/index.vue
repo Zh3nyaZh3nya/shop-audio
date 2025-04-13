@@ -5,6 +5,7 @@ const store = useStore()
 const route = useRoute()
 
 const products = store.GET_PRODUCTS_CATEGORY(route.params.category as string)
+const priceFilter = ref<number[]>([])
 
 const PAGE_SIZE: number = 12;
 const currentPage = ref<number>(1);
@@ -46,6 +47,26 @@ const changePage = (page: number) => {
   }
 };
 
+const minPrice = computed(() => {
+  if (products.length === 0) return 0
+  return products.reduce((min, item) => {
+    const price = Number(item.price)
+    return price < min ? price : min
+  }, Number.POSITIVE_INFINITY)
+})
+
+const maxPrice = computed(() => {
+  if (products.length === 0) return 0
+  return products.reduce((max, item) => {
+    const price = Number(item.price)
+    return price > max ? price : max
+  }, 0)
+})
+
+function resetFilters() {
+  priceFilter.value = []
+}
+
 useSeoMeta({
   title: `Каталог - ${products[0].category}`
 })
@@ -71,12 +92,7 @@ useSeoMeta({
         ></v-pagination>
 
         <v-row>
-          <v-col cols="12" md="3">
-            <v-sheet color="background-card" class="pa-4" rounded="lg">
-
-            </v-sheet>
-          </v-col>
-          <v-col cols="12" md="9">
+          <v-col cols="12">
             <v-row>
               <v-col
                   v-for="card in paginated"

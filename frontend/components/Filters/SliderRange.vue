@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends string">
+<script setup lang="ts" generic="T extends number">
 import { computed } from "vue";
 
 const props = defineProps<{
@@ -16,8 +16,10 @@ const model = computed<T[] | null>({
   set: (value) => {
     if (Array.isArray(value)) {
       emit('update:modelValue', [...value])
-    } else {
+    } else if (value !== null) {
       emit('update:modelValue', [value])
+    } else {
+      emit('update:modelValue', null)
     }
   }
 })
