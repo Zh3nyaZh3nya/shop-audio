@@ -11,6 +11,7 @@ interface RootState {
     products: IProduct[]
     favorites: IProduct[]
     cart: IProductCart[]
+    isOrder: boolean
 }
 
 export const useStore = defineStore("index", {
@@ -20,7 +21,8 @@ export const useStore = defineStore("index", {
         categories: categoriesData,
         products: productsData,
         favorites: [],
-        cart: []
+        cart: [],
+        isOrder: false,
     }),
     actions: {
         setCart(product: IProduct, count?: number, action: 'add' | 'remove' = 'add') {
@@ -48,6 +50,10 @@ export const useStore = defineStore("index", {
             } else {
                 this.cart = this.cart.filter((item: IProductCart) => item.title !== product.title)
             }
+        },
+        makeOrder() {
+            this.cart = []
+            this.isOrder = true
         },
         setFavorites(product: IProduct, action: 'add' | 'remove' = 'add') {
             if (action === 'add') {

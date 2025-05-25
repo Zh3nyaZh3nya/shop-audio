@@ -80,6 +80,20 @@ useSeoMeta({
                   <UICartCard :card="card" />
                 </v-col>
               </v-row>
+              <v-row v-else-if="store.isOrder">
+                <v-col cols="12" class="text-center">
+                  <h2 class="text-h6">Спасибо за заказ!</h2>
+                  <p class="mb-4">В скором времени мы с вами свяжемся.</p>
+                  <v-btn
+                      color="secondary"
+                      size="large"
+                      elevation="0"
+                      @click="store.isOrder = !store.isOrder"
+                  >
+                    В корзину
+                  </v-btn>
+                </v-col>
+              </v-row>
               <v-row v-else>
                 <v-col cols="12" class="text-center">
                   <h2 class="text-h6">В корзине нет товаров.</h2>
@@ -113,20 +127,21 @@ useSeoMeta({
                   block
                   height="64px"
                   rounded="lg"
+                  @click="store.makeOrder"
                 >
                   Перейти к оформлению
                 </v-btn>
               </div>
-              <v-divider class="my-4"/>
-              <v-text-field
-                v-model="promocode"
-                variant="outlined"
-                placeholder="Введите промокод"
-                color="primary"
-                :hide-details="true"
-              >
+<!--              <v-divider class="my-4"/>-->
+<!--              <v-text-field-->
+<!--                v-model="promocode"-->
+<!--                variant="outlined"-->
+<!--                placeholder="Введите промокод"-->
+<!--                color="primary"-->
+<!--                :hide-details="true"-->
+<!--              >-->
 
-              </v-text-field>
+<!--              </v-text-field>-->
             </v-sheet>
           </v-col>
         </v-row>
